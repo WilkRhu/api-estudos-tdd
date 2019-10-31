@@ -1,16 +1,16 @@
 require('dotenv').config();
-const koa = require('koa');
-const app = new koa();
-
+require('./src/conect/index');
+const Koa = require('koa');
 const bodyparser = require('koa-body-parser');
 const json = require('koa-json');
-const router = require('./src/router/router');
+const router = require('./src/routes/router');
 
+const app = new Koa();
 app.use(bodyparser());
 app.use(router.routes());
 app.use(json());
 
 
 app.listen(process.env.PORT || 3001, () => {
-    console.log('Rodando na porta 3001!');
-})
+  console.log('Rodando na porta 3001!');
+});
