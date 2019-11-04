@@ -1,5 +1,5 @@
 const userMoch = require('./userMoch');
-const UserController = require('../../controllers/UserController');
+const UserController = require('../../controllers/userController');
 const userCreateSuccess = require('./userCreateSuccess.json');
 const userCreateError = require('./userCreateError.json');
 
@@ -23,6 +23,6 @@ describe('Teste de usuários', () => {
       },
     };
     const response = await UserController.create(ctx, {}, userMoch.createError());
-    expect(response.name).toBe(1);
+    expect(response.name).toBe(' ');
   });
 });
