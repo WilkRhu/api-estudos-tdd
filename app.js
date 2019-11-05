@@ -1,4 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env',
+});
 require('./src/conect/index');
 const Koa = require('koa');
 const bodyparser = require('koa-body-parser');

@@ -1,28 +1,20 @@
 const userMoch = require('./userMoch');
+const userModel = require('../../models/user');
 const UserController = require('../../controllers/userController');
 const userCreateSuccess = require('./userCreateSuccess.json');
 const userCreateError = require('./userCreateError.json');
+const router = require('../../routes/router');
+
+const userSucces = {
+  name: 'Wilk Caetano',
+  email: 'wilk.caetano@gmail.com',
+  password: '@wilk2019#',
+  cpf: '855.698.365-56',
+  rg: '8754220',
+
+};
 
 
 describe('Teste de usuários', () => {
-  test.skip('Deve criar usuário corretamente', async () => {
-    const ctx = {
-      request: {
-        body: userCreateSuccess,
-      },
-    };
-    const response = await UserController.create(ctx, {}, userMoch.create());
 
-    expect(response.name).toBe('Wilk Caetano');
-  });
-
-  test('Deve dar erro na criação do usuário', async () => {
-    const ctx = {
-      request: {
-        body: userCreateError,
-      },
-    };
-    const response = await UserController.create(ctx, {}, userMoch.createError());
-    expect(response.name).toBe(' ');
-  });
 });
