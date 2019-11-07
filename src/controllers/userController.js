@@ -17,5 +17,5 @@ const create = async (ctx, next, User = UserModel) => {
 };
 
 module.exports = {
-  create,
+  store: (ctx, next) => create(ctx, next, UserModel),
 };
